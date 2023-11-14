@@ -1,16 +1,10 @@
 import openai
 import time
-from tools.hfConnector import hfConnector as hfConnector
 from tools.functionsConfigurator import functionsConfigurator as functionsConfigurator
+from tools.openAiHelper import openAiHelper as openAiHelper
 
+openAiListenerObj = openAiHelper()
 functionConfigHelper = functionsConfigurator()
-def get_offers(destination: str) -> str:
-    hfCon = hfConnector()
-    hotelName = hfCon.getOffers()
-    return hotelName
-
-#response = get_offers()
-#print(response)
 #raise SystemExit
 
 tools_list = [
@@ -48,73 +42,10 @@ if newThread == 1:
     threadId = thread.id
     print("Thread ID : ",threadId)
 
-
-# Step 3: Add a Message to a Thread
-message = client.beta.threads.messages.create(
-    thread_id=threadId,
-    role="user",
-    content=messageToSend
-)
-
-print("run")
-# Step 4: Run the Assistant
-run = client.beta.threads.runs.create(
-    thread_id=threadId,
-    assistant_id=assistant_id,
-    instructions="Please address the user as Mervin Praison."
-)
-
-print(run.model_dump_json(indent=4))
-
-while True:
-    # Wait for 5 seconds
-    time.sleep(5)
-
-    # Retrieve the run status
-    run_status = client.beta.threads.runs.retrieve(
-        thread_id=threadId,
-        run_id=run.id
-    )
-    print(run_status.model_dump_json(indent=4))
-
-    # If run is completed, get messages
-    if run_status.status == 'completed':
-        messages = client.beta.threads.messages.list(
-            thread_id=threadId
-        )
-
-        # Loop through messages and print content based on role
-        for msg in messages.data:
-            role = msg.role
-            content = msg.content[0].text.value
-            print(f"{role.capitalize()}: {content}")
-
-        break
-    elif run_status.status == 'requires_action':
-        print("Function Calling")
-        required_actions = run_status.required_action.submit_tool_outputs.model_dump()
-        print(required_actions)
-        tool_outputs = []
-        import json
-        for action in required_actions["tool_calls"]:
-            func_name = action['function']['name']
-            arguments = json.loads(action['function']['arguments'])
-            
-            if func_name == "get_offers":
-                output = get_offers(destination=arguments['destination'])
-                tool_outputs.append({
-                    "tool_call_id": action['id'],
-                    "output": output
-                })
-            else:
-                raise ValueError(f"Unknown function: {func_name}")
-            
-        print("Submitting outputs back to the Assistant...")
-        client.beta.threads.runs.submit_tool_outputs(
-            thread_id=threadId,
-            run_id=run.id,
-            tool_outputs=tool_outputs
-        )
-    else:
-        print("Waiting for the Assistant to process...")
-        time.sleep(5)
+messageToSend = input("User: ")
+while messageToSend != "exit":
+    run = openAiListenerObj.sendMessage(client,assistant_id, threadId, messageToSend)
+    #print(run.model_dump_json(indent=4))
+    openAiListenerObj.listen(client, assistant_id, threadId, run)
+    messageToSend = input("User: ")
+raise SystemExit

@@ -16,7 +16,7 @@ class hfConnector:
     def printResponse(self, testObj):
     	print(testObj)
 
-    def getOffers(self):
+    def getOffers(self, destination):
     	response = requests.get(url = self.host+self.parameters)
     	#self.printResponse(response.content)
     	jsonObjResponse = json.loads(response.content)
