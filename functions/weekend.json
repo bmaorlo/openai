@@ -1,0 +1,16 @@
+{
+  "name": "set_weekend_only",
+  "description": "if the customer want trips only at weekend",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "weekendOnly": {
+        "type": "boolean",
+        "description": "if the customer want trips only at weekend "
+      }
+    },
+    "required": [
+      "weekendOnly"
+    ]
+  }
+}

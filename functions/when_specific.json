@@ -1,0 +1,21 @@
+{
+  "name": "set_specific_dates",
+  "description": "When the customer have a specific dates in mind and want to travel only on those dates. ",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "start_date": {
+        "type": "number",
+        "description": "The starting date of the range of dates the customer is willing to travel"
+      },
+      "end_date": {
+        "type": "string",
+        "description": "The starting date of the range of dates the customer is willing to travel"
+      }
+    },
+    "required": [
+      "start_date_range",
+      "end_date_range"
+    ]
+  }
+}

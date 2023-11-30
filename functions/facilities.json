@@ -1,0 +1,41 @@
+{
+  "name": "set_hotel_type_and_facilities",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "hotel_type_and_facilities": {
+        "type": "array",
+        "description": "The type of hotel and the facilities that the hotel have in it",
+        "items": {
+          "type": "string",
+          "enum": [
+            "Parking",
+            "hotel with public Pool",
+            "hotel is Pet friendly",
+            "Room with Kitchen",
+            "hotel have Restaurants",
+            "Airport shuttle",
+            "hotel have Spa",
+            "hotel have Private pool",
+            "hotel have Kids Club",
+            "hotel have Private beach",
+            "hotel have Casino",
+            "Hotel for Adults only",
+            "hotel have Kosher meals",
+            "Close to the Chabad",
+            "Close to a Synagogue",
+            "Close to Kosher restaurant",
+            "Directly on the beach",
+            "Close to beach",
+            "All inclusive hotel",
+            "hotel have Water park"
+          ]
+        }
+      }
+    },
+    "required": [
+      "hotel_type_and_facilities"
+    ]
+  },
+  "description": "The type of hotel and the facilities that the hotel have in it"
+}

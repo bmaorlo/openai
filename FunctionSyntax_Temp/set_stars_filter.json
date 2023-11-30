@@ -1,0 +1,22 @@
+{
+  "name": "set_star_filter",
+  "description": "when the user is asking to filter his resluts by hotel stars",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "stars": {
+        "type": "array",
+        "description": "the star rating to apply",
+        "items": {
+          "type": "number",
+          "enum": [
+            1,2,3,4,5
+          ]
+        }
+      }
+    },
+    "required": [
+      "stars"
+    ]
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "name": "set_vacation_theme",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "theme": {
+        "type": "array",
+        "description": "The theme of the vacation the customer is looking for",
+        "items": {
+          "type": "string",
+          "enum": [
+            "Casino vacation",
+            "Shopping",
+            "Family holidays",
+            "Beach holidays",
+            "Long-haul destinations",
+            "Nightlife",
+            "Bachelor party",
+            "European vacation",
+            "Exotic destinations",
+            "Romantic",
+            "Honeymoon",
+            "Culture",
+            "All city trips",
+            "Classic Sun & Beach Islands",
+            "Oriental Cities",
+            "Luxury Destinations",
+            "Off the beaten Track",
+            "Culinary capitals",
+            "The other Sun and Beach Destinations",
+            "LGBTQ+ friendly",
+            "Family beach holidays",
+            "European vacation with kids",
+            "Last minute holiday",
+            "Beach holidays",
+            "Surfing, diving, kiting...",
+            "Ski destinations",
+            "City vacation",
+            "Nightlife & Party-not in use",
+            "Culture -Not in use",
+            "Shopping trip",
+            "City trips with Kids",
+            "Romantic cities",
+            "Kosher vacation",
+            "All Inclusive beach holidays",
+            "Discover new beaches",
+            "No mainstream cities",
+            "Adults only",
+            "Honeymoon",
+            "Long-haul",
+            "Cities with beaches",
+            "weekend trip",
+            "Holidays with WaterPark",
+            "All Inclusive",
+            "Holidays beach vacation",
+            "Autumn deals",
+            "Warm in Winter",
+            "Budget friendly cities",
+            "Sunny cities in winter",
+            "European capitals",
+            "Cities with short flights",
+            "Christmas vibe cities",
+            "Fashion hubs",
+            "Art and culture short trips",
+            "Popular",
+            "Shorts getaways",
+            "Winter-sun destinations",
+            "Instagram Places"
+          ]
+        }
+      }
+    },
+    "required": [
+      "theme"
+    ]
+  },
+  "description": "The vacation theme the customer is interested in, the type of vacation"
+}

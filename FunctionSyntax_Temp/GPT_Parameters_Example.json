@@ -1,0 +1,213 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Holidayfinder plugin",
+    "description": "A plugin that help to find the best vacation baed on your search",
+    "version": "v2"
+  },
+  "servers": [
+    {
+      "url": "https://www.plashon.com/"
+    }
+  ],
+  "paths": {
+    "/maorgpt": {
+      "get": {
+        "operationId": "getVacation",
+        "summary": "get vacation offers and deals based on search parameters make a search to get vacation deals",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "destination",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "Rhodes",
+                  "Budapest",
+                  "Larnaca",
+                  "Prague",
+                  "Crete",
+                  "Athens",
+                  "Istanbul",
+                  "Paphos",
+                  "Madrid",
+                  "Vienna",
+                  "Dubai",
+                  "Abu Dhabi",
+                  "Bucharest",
+                  "Sofia",
+                  "Corfu",
+                  "Ayia Napa",
+                  "Limassol",
+                  "Rome",
+                  "London",
+                  "Berlin",
+                  "Barcelona",
+                  "Amsterdam",
+                  "Paris",
+                  "Europe",
+                  "Any greek island",
+                  "beach destination"
+                ]
+              }
+            },
+            "required": true,
+            "description": "The name of the vacation destination"
+          },
+          {
+            "in": "query",
+            "name": "month",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32",
+                "minimum": 1,
+                "maximum": 12
+              }
+            },
+            "required": false,
+            "description": "The month of the vacation (1 for January, 2 for February, etc.) when user want to explore the entire month"
+          },
+          {
+            "in": "query",
+            "name": "adults",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 2,
+              "maximum": 3
+            },
+            "required": true,
+            "description": "The number of adults for the vacation"
+          },
+          {
+            "in": "query",
+            "name": "children",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 0,
+              "maximum": 3
+            },
+            "required": true,
+            "description": "The number of children for the vacation"
+          },
+          {
+            "in": "query",
+            "name": "startDate",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "required": false,
+            "description": "only if the user have specific date in mind to start the vacation"
+          },
+          {
+            "in": "query",
+            "name": "endDate",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "required": false,
+            "description": "only if the user have specific date in mind to end the vacation"
+          },
+          {
+            "in": "query",
+            "name": "weekends",
+            "schema": {
+              "type": "boolean"
+            },
+            "required": false,
+            "description": "If the customer is looking only for weekend vacations or all days"
+          },
+          {
+            "in": "query",
+            "name": "los",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32",
+                "minimum": 3,
+                "maximum": 7
+              }
+            },
+            "required": false,
+            "description": "How many nights the customer is interested in for his vacation"
+          },
+          {
+            "in": "query",
+            "name": "budget",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 100,
+              "maximum": 5000
+            },
+            "required": false,
+            "description": "What's the maximum budget of customer for his vacation in US dollars"
+          },
+          {
+            "in": "query",
+            "name": "hospetalityLevel",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 3,
+              "maximum": 5
+            },
+            "required": false,
+            "description": "what's the star rating of the hotels to look for"
+          },
+          {
+            "in": "query",
+            "name": "boardType",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "bed and breakfast",
+                "half board",
+                "full board",
+                "all inclusive"
+              ]
+            },
+            "required": false,
+            "description": "The kind of hospetality the user want, if he want to have breakfast, 2 meals , 3 meals or all inclusive stay"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getVacation"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "getVacation": {
+        "type": "object",
+        "properties": {
+          "vacations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The list of vacations."
+          }
+        }
+      }
+    }
+  }
+}

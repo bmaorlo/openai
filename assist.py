@@ -20,7 +20,7 @@ print("Create Assistant")
 
 newAssistant = 1
 newThread = 1
-assistant_id = "asst_f4N68RO5Zh9dkBh8MPkgnILC"
+assistant_id = "asst_PWXcAjzaPa8GaNnOTT5DD31f"
 threadId = "thread_ufoLhtd06azdjhdTQIGDhmmz"
 messageToSend = "I am traveling to Rome"
 

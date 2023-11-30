@@ -1,0 +1,26 @@
+{
+  "name": "set_board_type",
+  "description": "The hotel room board type of stay the customer interested in, with breakfast or without or maybe all inclusive etc",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "room_board_type": {
+        "type": "array",
+        "description": "The room board type",
+        "items": {
+          "type": "string",
+          "enum": [
+            "room only",
+            "with breakfast",
+            "breakfast and dinner",
+            "breakfast lunch and dinner",
+            "all inclusive"
+          ]
+        }
+      }
+    },
+    "required": [
+      "room_board_type"
+    ]
+  }
+}

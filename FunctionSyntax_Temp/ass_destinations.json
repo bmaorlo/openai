@@ -1,0 +1,47 @@
+{
+  "name": "set_destination",
+  "description": "Specify list of destinations the user interested of searching a vacation in",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "destinationName": {
+        "type": "array",
+        "description": "The destination it's possible to search vacation at",
+        "items": {
+          "type": "string",
+          "enum": [
+            "Rhodes",
+            "Budapest",
+            "Larnaca",
+            "Prague",
+            "Crete",
+            "Athens",
+            "Istanbul",
+            "Paphos",
+            "Madrid",
+            "Vienna",
+            "Dubai",
+            "Abu Dhabi",
+            "Bucharest",
+            "Sofia",
+            "Corfu",
+            "Ayia Napa",
+            "Limassol",
+            "Rome",
+            "London",
+            "Berlin",
+            "Barcelona",
+            "Amsterdam",
+            "Paris",
+            "Europe",
+            "Any greek island",
+            "beach destination"
+          ]
+        }
+      }
+    },
+    "required": [
+      "destinationName"
+    ]
+  }
+}

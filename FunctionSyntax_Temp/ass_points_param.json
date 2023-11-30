@@ -1,0 +1,25 @@
+{
+  "name": "show_places_on_map",
+  "description": "When your response include locations, destination or places call this function to display it also on map to the user",
+  "parameters": {
+    "type": "object",
+    "description": "the points i want to show the user on the map",
+    "properties": {
+      "points": {
+        "type": "array",
+        "description": "An array of longitude and latitude points, where each point is an array of two numbers representing coordinates that needs to be displayed on map",
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        }
+      }
+    },
+    "required": [
+      "points"
+    ]
+  }
+}

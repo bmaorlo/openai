@@ -1,0 +1,29 @@
+{
+  "name": "set_query_type",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "query_type": {
+        "type": "array",
+        "description": "what the customer is trying to do with his booking",
+        "items": {
+          "type": "string",
+          "enum": [
+            "check in help",
+            "cancel my reservation",
+            "change the reservation"
+          ]
+        }
+      },
+      "order_number": {
+        "type": "string",
+        "description": "the order the customer trying to get help with"
+      }
+    },
+    "required": [
+      "query_type",
+      "order_number"
+    ]
+  },
+  "description": "the details for what the customer trying to get help with. "
+}

@@ -1,0 +1,30 @@
+{
+  "name": "set_adults_children_capacity",
+  "description": "how much and who are the people that is traveling",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "number_of_adults": {
+        "type": "number",
+        "description": "the number of adults that is going to the vacation"
+      },
+      "number_of_children": {
+        "type": "number",
+        "description": "the number of children that is going to the vacation"
+      },
+      "children_ages": {
+        "type": "array",
+        "description": "The ages of the children , can be from age 1 to 17",
+        "items": {
+          "type": "number",
+          "min": 1,
+          "max": 17
+        }
+      }
+    },
+    "required": [
+      "number_of_adults",
+      "number_of_children"
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "set_dates_range",
+  "description": "When the customer want only partial month range to search on, but still dont have any specific dates in mind",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "start_date_range": {
+        "type": "number",
+        "description": "The starting date of the range of dates the customer is willing to travel"
+      },
+      "end_date_range": {
+        "type": "string",
+        "description": "The starting date of the range of dates the customer is willing to travel"
+      },
+      "number_of_nights": {
+        "type": "number",
+        "description": "The number of nights the customer want to travel"
+      }
+    },
+    "required": [
+      "start_date_range",
+      "end_date_range"
+    ]
+  }
+}

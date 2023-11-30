@@ -1,0 +1,17 @@
+{
+  "name": "set_max_budget",
+  "description": "Price filter, the maximum budget per person the customer want to get results on",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "max_price_per_person": {
+        "type": "number",
+        "min": 0,
+        "max": 2000
+      }
+    },
+    "required": [
+      "max_price_per_person"
+    ]
+  }
+}

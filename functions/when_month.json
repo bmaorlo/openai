@@ -1,0 +1,20 @@
+{
+  "name": "set_travel_month",
+  "description": "when the user is specifying month of when he want to go",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "travelMonth": {
+        "type": "number",
+        "description": "the number that represent the month of his travel plans"
+      },
+      "number_of_nights": {
+        "type": "number",
+        "description": "The number of nights the customer want to travel"
+      }
+    },
+    "required": [
+      "travelMonth"
+    ]
+  }
+}
